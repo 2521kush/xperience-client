@@ -1,4 +1,6 @@
 import { Routes } from "react-router-dom";
+import JuniorMain from "pages/Junior/JuniorMain";
+
 const Junior = () => {
   return (
     <Routes>
