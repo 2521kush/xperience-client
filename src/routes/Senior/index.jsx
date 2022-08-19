@@ -1,4 +1,9 @@
 import { Routes } from "react-router-dom";
+import SeniorMain from "pages/Senior/SeniorMain";
+import SeniorNote from "pages/Senior/SeniorNote";
+import SeniorMyPage from "pages/Senior/SeniorMyPage";
+import SeniorSetting from "pages/Senior/SeniorSetting";
+
 const Senior = () => {
   return (
     <Routes>
