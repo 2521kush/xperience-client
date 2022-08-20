@@ -8,7 +8,6 @@ import PurpleCard from "components/Common/purpleCard";
 
 const SeniorMain = () => {
   const scrollRef = useRef(null);
-
   const [reservationData, setReservationData] = useState({
     userInfo: [
       {
