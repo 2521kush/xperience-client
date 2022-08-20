@@ -114,7 +114,7 @@ body{
 
 .setting_text{
     padding-left: 30px;
-    padding-top: 26px;
+    padding-top: 71px;
     color: #202e5f;
     font-size: 14px;
     font-weight: bold;
@@ -136,4 +136,135 @@ body{
 
 .Frame_img{
     width: 375px;
+    position: absolute;
 }
+
+.SeniorMypage_img{
+    width: 118px;
+}
+
+.SeniorMypage_profile{
+    width: 118px;
+    padding-left: 30px;
+    padding-top: 120px;
+}
+
+.SeniorMypage_profile>div{
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    margin-top: 10px;
+    color: #202e5f;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.SeniorMypage_tag{
+    padding-top: 120px;
+    width: 163px;
+    padding-left: 34px;
+    padding-right: 30px;
+}
+
+.css-152mnda-MuiInputBase-input-MuiOutlinedInput-input{
+    font-size: 12px !important;
+}
+
+.css-iqd1hh-MuiButtonBase-root-MuiChip-root{
+    font-size: 12px !important;
+    height: 20px !important;
+}
+
+.css-i4bv87-MuiSvgIcon-root{
+    height: 15px !important;
+}
+
+.SeniorMypage_text{
+    color: #202e5f;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.SeniorMypage_smalltext{
+    font-size: 10px;
+    padding-bottom: 10px;
+}
+
+button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.SeniorMypage_button{
+    background-color:#E8E7FB;
+    border-radius : 15px;
+    border-color: #E8E7FB;
+    font-size: 12px;
+    padding: 3px;
+    width: 100px;
+    border: 0;
+    outline: 0;
+}
+
+.mypage_container{
+    width: 375px;
+    height: 812px;
+    display:flex;
+}
+
+.SeniorMypage_top{
+    display: flex;
+    flex-direction: row;
+}
+
+.SeniorMypage_bottom{
+    padding-top: 50px;
+    width: 315px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.SeniorMypage_input{
+    width: 300px;
+    border: 0;
+    outline: 0;
+    font-size: 12px;
+    padding-bottom: 20px;
+}
+.weekDay{
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.weekimg{
+    width: 39.70px;
+}
+
+.weektitle{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.lineimg{
+    width: 315px;
+}
+
+.navSpace{
+    height: 100px;
+}
+
+.Time_input{
+    width: 60px;
+    border: 0;
+    outline: 0;
+    font-size: 12px;
+    padding: 5px;
+    padding-left: 40px;
+    background-color: #E8E7FB;
+    border-radius : 15px;
+}
+

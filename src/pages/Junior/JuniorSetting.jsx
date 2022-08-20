@@ -1,5 +1,5 @@
 import Setting from "assets/Setting.png";
-import Top from "components/common/Top";
+import Top from "components/Common/Top";
 
 const JuniorSetting = () => {
   return (
