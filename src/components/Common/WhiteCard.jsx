@@ -14,15 +14,15 @@ const WhiteCard = (props) => {
       </StImgDiv>
       <StContentWrapper>
         <StTitle>
-          {company}/{job}/{working}
+          {company} / {job} / {working}
         </StTitle>
         <StDetailWrapper>
           <img src={icRecommend} alt="" />
           <p>추천순</p>
-          <strong>{recommendPrize}</strong>
+          <strong>{recommendPrize}위</strong>
           <img src={icMeet} alt="" />
           <p>미팅횟수</p>
-          <strong>{meetingCnt}</strong>
+          <strong>{meetingCnt}회</strong>
         </StDetailWrapper>
         <StTagWrapper>
           {tag.map((item) => (
@@ -56,7 +56,7 @@ const StImgDiv = styled.div`
 `;
 
 const StContentWrapper = styled.div`
-  margin: 14px 0 0 16px;
+  margin: 14px 0 4px 16px;
 `;
 
 const StTitle = styled.strong`
@@ -83,19 +83,25 @@ const StDetailWrapper = styled.div`
     height: 10px;
     width: 10px;
     border-radius: 0px;
+    margin-right: 3px;
   }
 
   & > p {
     font-weight: 400;
+    margin: 0px;
+    margin-right: 3px;
   }
 
   & > strong {
     font-weight: 700;
+    margin-right: 5px;
   }
 `;
 
 const StTagWrapper = styled.ul`
   display: flex;
+  list-style: none;
+  padding-left: 0px;
 
   font-family: "Noto Sans KR";
   font-style: normal;
@@ -110,6 +116,10 @@ const StTagWrapper = styled.ul`
   gap: 6px;
 
   & > li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16px;
     background: #e8e7fb;
     border-radius: 11.4286px;
     padding: 3px;

@@ -73,10 +73,13 @@ export default Nav;
 const StNav = styled.div`
   display: flex;
   justify-content: space-around;
-  position: sticky;
+  position: fixed;
+  z-index: 3;
 
   width: 375px;
   hegiht: 73px;
+
+  top: 751px;
 
   background-color: white;
 `;
