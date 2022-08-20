@@ -3,6 +3,7 @@ import Nav from "components/Common/nav";
 import Top from "components/Common/Top";
 import ProfileBack from "assets/ProfileBack.png";
 import ProfileTag from "components/Common/ProfileTag";
+import ProfileTag2 from 'components/Common/ProfileTag2';
 import L_Mon from "assets/L_Mon.png";
 import B_Mon from "assets/B_Mon.png";
 import L_Tue from "assets/L_Tue.png";
@@ -98,8 +99,11 @@ const SeniorMyPage = () => {
                   </div>
                   <div className ="SeniorMypage_tag">
                     <div className ="SeniorMypage_text">태그 설정</div>
-                    <div className = "SeniorMypage_smalltext">나를 소개하는 단어를 설정해보세요</div>
+                    <div className = "SeniorMypage_smalltext">업무를 소개하는 단어를 설정하세요</div>
                     <ProfileTag/>
+                    <br></br>
+                    <div className = "SeniorMypage_smalltext">성격을 소개하는 단어를 설정하세요</div>
+                    <ProfileTag2/>
                   </div>
       </div>
       <div className ="SeniorMypage_bottom">

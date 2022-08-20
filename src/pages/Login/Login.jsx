@@ -27,7 +27,7 @@ const Login = () => {
                 "content-type": "multipart.form-data"
             }
         }
-        await axios.post("/api/users/login", formData, config).then((response)=>{
+        await axios.post("/api/login", formData, config).then((response)=>{
             if(response.data.login === false){
                 alert('아이디와 비밀번호를 다시 확인해주세요')
             }
