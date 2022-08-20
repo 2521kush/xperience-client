@@ -22,12 +22,15 @@ const ReservationCard = (props) => {
     ":" +
     minute;
 
-  useEffect(() => {}, []);
+  const star = Math.round(starNo); //별점 반올림
+  const starString = "★".repeat(star) + "☆".repeat(5 - star);
 
   return (
     <StReservationCard>
-      <StName>{name}</StName>
-      {/* <StStar></StStar> */}
+      <div>
+        <StName>{name}</StName>
+        <StStar>{starString}</StStar>
+      </div>
       <StDetail>- {job}</StDetail>
       <StDetail>- {timeStamp}</StDetail>
       <StDetail>- {comment}</StDetail>
@@ -49,6 +52,10 @@ const StReservationCard = styled.div`
   border-radius: 8px;
 
   margin-left: 27px;
+
+  & > div:first-child {
+    display: flex;
+  }
 `;
 
 const StName = styled.strong`
@@ -63,7 +70,18 @@ const StName = styled.strong`
 
   color: #202e5f;
 `;
+const StStar = styled.strong`
+  margin-left: 5px;
 
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 12px;
+  letter-spacing: -0.02em;
+
+  color: #202e5f;
+`;
 const StDetail = styled.p`
   margin: 6px 0 0 6px;
 
