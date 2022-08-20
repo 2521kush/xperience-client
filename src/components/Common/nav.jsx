@@ -73,11 +73,9 @@ export default Nav;
 const StNav = styled.div`
   display: flex;
   justify-content: space-around;
-  align-items: center;
+
   width: 375px;
   hegiht: 73px;
-
-  top: 694px;
 
   background-color: white;
 `;
@@ -87,6 +85,7 @@ const StIconWrapper = styled.div`
   gap: 60px;
   margin: 12px;
 `;
+
 const StIconBtn = styled.div`
   & > img {
     width: 22px;
