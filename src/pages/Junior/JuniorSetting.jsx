@@ -9,6 +9,6 @@ const JuniorSetting = () => {
     <br></br><br></br>
     <img className="setting_img" src={Setting} alt="React" />
   </div>
-  )
+  );
 };
 export default JuniorSetting;
