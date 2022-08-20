@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import activeHome from "assets/nav_home_active.png";
-import inactiveHome from "assets/nav_home_inactive.png";
-import activeSchedule from "assets/nav_schedule_active.png";
-import inactiveSchedule from "assets/nav_schedule_inactive.png";
-import activeProfile from "assets/nav_profile_active.png";
-import inactiveProfile from "assets/nav_profile_inactive.png";
-import activeSetting from "assets/nav_setting_active.png";
-import inactiveSetting from "assets/nav_setting_inactive.png";
+import activeHome from "assets/ic_nav_home_active.png";
+import inactiveHome from "assets/ic_nav_home_inactive.png";
+import activeSchedule from "assets/ic_nav_schedule_active.png";
+import inactiveSchedule from "assets/ic_nav_schedule_inactive.png";
+import activeProfile from "assets/ic_nav_profile_active.png";
+import inactiveProfile from "assets/ic_nav_profile_inactive.png";
+import activeSetting from "assets/ic_nav_setting_active.png";
+import inactiveSetting from "assets/ic_nav_setting_inactive.png";
 
 const Nav = () => {
   const router = useLocation();
