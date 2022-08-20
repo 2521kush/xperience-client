@@ -1,14 +1,21 @@
-import { Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Login from "pages/Login/Login";
+import SignUp from "pages/SignUp/SignUp";
+import Senior from "./Senior";
+import Junior from "./Junior";
+import OnBoarding from "pages/OnBoarding/OnBoarding";
+import NotFound from "./NotFound";
 
 const MainRoutes = () => {
   return (
     <Routes>
-      <Routes path="/" element={<OnBoarding />} />
-      <Routes path="/login" element={<Login />} />
-      <Routes path="/signup" element={<Signup />} />
-      <Routes path="/senior/*" element={<Senior />} />
-      <Routes path="/junior/*" element={<Junior />} />
-      <Routes path="/*" element={<NotFound />} />
+      <Route path="/" element={<OnBoarding />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/senior/*" element={<Senior />} />
+      <Route path="/junior/*" element={<Junior />} />
+      <Route path="/*" element={<NotFound />} />
+      
     </Routes>
   );
 };
