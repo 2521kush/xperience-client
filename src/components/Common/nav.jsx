@@ -25,7 +25,7 @@ export default Nav;
 const StNav = styled.div`
   width: 375px;
 
-  background-color: white;
+  background-color: yellow;
 `;
 const StIconWrapper = styled.div`
   display: flex;
