@@ -1,7 +1,28 @@
 import styled from "styled-components";
+import { useEffect } from "react";
 
 const ReservationCard = (props) => {
-  const { name, starNo, job, timeStamp, comment } = props;
+  const { name, starNo, job, timeStampRaw, comment } = props;
+
+  const month = timeStampRaw.substr(4, 6); //월
+  const date = timeStampRaw.substr(6, 8); //월
+  const hour = timeStampRaw.substr(8, 10); //월
+  const minute = timeStampRaw.substr(10); //월
+  const endHour = +hour + 1;
+  const timeStamp =
+    month +
+    "월 " +
+    date +
+    "일 " +
+    hour +
+    ":" +
+    minute +
+    "-" +
+    endHour +
+    ":" +
+    minute;
+
+  useEffect(() => {}, []);
 
   return (
     <StReservationCard>

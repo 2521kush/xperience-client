@@ -11,18 +11,11 @@ const JuniorMain = () => {
   const [reservationData, setReservationData] = useState({
     userInfo: [
       {
-        Name: "백이진",
-        StarNo: 3,
-        Job: "UX 디자이너",
-        TimeStamp: "8월 20일 15:00-16:00",
-        Comment: "디자이너도 코딩을 배워야 하는지 궁금해요.",
-      },
-      {
-        Name: "djbf",
-        StarNo: 3,
-        Job: "UX 디자이너",
-        TimeStamp: "8월 20일 15:00-16:00",
-        Comment: "디자이너도 코딩을 배워야 하는지 궁금해요.",
+        Name: "주니어",
+        Category: 3,
+        Start: "202208101630",
+        Title: "뽑아주세요",
+        Score: 0,
       },
     ],
   });
@@ -121,13 +114,13 @@ const JuniorMain = () => {
         <StLabel>예정 미팅</StLabel>
         <div>
           {reservationData.userInfo.map(
-            ({ Name, StarNo, Job, TimeStamp, Comment }) => (
+            ({ Name, StarNo, Category, Start, Title }) => (
               <ReservationCard
-                name={Name}
-                starNo={StarNo}
-                job={Job}
-                timeStamp={TimeStamp}
-                comment={Comment}
+                name={Name} //string
+                starNo={StarNo} //float
+                job={Category} //num
+                timeStampRaw={Start} //string
+                comment={Title} //string
               />
             )
           )}
