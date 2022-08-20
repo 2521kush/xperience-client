@@ -11,17 +11,20 @@ const JuniorSearch = () => {
       <StHeader>
         <p>IT 계열 회사</p>
       </StHeader>
-      {data.map(({}) => (
-        <WhiteCard
-          imgSrc={ImgSrc}
-          company={Company} //숫자배열 -> 0번째 사용
-          job={Category} //직군 숫자
-          working={Working} //근속년수
-          recommendPrize={RecommendPrize} //
-          meetingCnt={MeetingCnt}
-          tag={Worktag}
-        />
-      ))}
+      {data.map(
+        ({ UserNo, ImgSrc, Company, Category, Profile, ConnectCnt }) => (
+          <WhiteCard
+            id={UserNo}
+            imgSrc={ImgSrc}
+            companyArr={Company} //숫자배열 -> 0번째 사용
+            job={Category} //직군 숫자
+            working={Profile.WorkPeriod} //근속년수 숫자
+            meetingCnt={ConnectCnt}
+            workTagArr={Profile.WorkTag} //워크태그배열
+            characterTagArr={Profile.CharacterTag} //캐릭터태그배열
+          />
+        )
+      )}
     </StJuniorSearch>
   );
 };

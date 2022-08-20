@@ -4,6 +4,7 @@ import JuniorSearch from "pages/Junior/JuniorSearch";
 import JuniorMyPage from "pages/Junior/JuniorMyPage";
 import JuniorSchedule from "pages/Junior/JuniorSchedule";
 import JuniorSetting from "pages/Junior/JuniorSetting";
+import SeniorProfile from "pages/Junior/SeniorProfile";
 
 const Junior = () => {
   return (
@@ -13,6 +14,7 @@ const Junior = () => {
       <Route path="/note" element={<JuniorSchedule />} />
       <Route path="/mypage" element={<JuniorMyPage />} />
       <Route path="/setting" element={<JuniorSetting />} />
+      <Route path="/profile/:id" element={<SeniorProfile />} />
     </Routes>
   );
 };
