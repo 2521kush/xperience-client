@@ -15,6 +15,7 @@ const MainRoutes = () => {
       <Route path="/senior/*" element={<Senior />} />
       <Route path="/junior/*" element={<Junior />} />
       <Route path="/*" element={<NotFound />} />
+      
     </Routes>
   );
 };
