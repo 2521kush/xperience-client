@@ -61,7 +61,7 @@ const StEnterBtn = styled.div`
   justify-content: center;
   align-items: center;
 
-  position: fixed;
+  position: absolute;
   margin: 29px 0 0 228px;
 
   width: 71px;
