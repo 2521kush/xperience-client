@@ -7,7 +7,7 @@ const PurpleCard = (props) => {
   return (
     <StPurpleCard>
       <StImgDiv>
-        <ProfileImgDiv src={imgsrc} />{" "}
+        <ProfileImgDiv src={imgsrc} />
       </StImgDiv>
       <StTitle>'{title}'</StTitle>
       <StComment>'{comment}'</StComment>
