@@ -26,6 +26,12 @@ const Nav = () => {
     }
   };
 
+  const handleClick = (props) => {
+    const baseRoute = router.pathname.includes("senior") ? "senior" : "junior";
+    const detailRoute = props;
+    window.location.href = `/${baseRoute}/${detailRoute}`;
+  };
+
   useEffect(() => {
     getCurrentPath();
   }, []);
@@ -33,25 +39,25 @@ const Nav = () => {
   return (
     <StNav>
       <StIconWrapper>
-        <StIconBtn>
+        <StIconBtn onClick={() => handleClick("")}>
           <img
             src={currentPath === "home" ? activeHome : inactiveHome}
             alt="홈"
           />
         </StIconBtn>
-        <StIconBtn>
+        <StIconBtn onClick={() => handleClick("schedule")}>
           <img
             src={currentPath === "schedule" ? activeSchedule : inactiveSchedule}
             alt="일정"
           />
         </StIconBtn>
-        <StIconBtn>
+        <StIconBtn onClick={() => handleClick("mypage")}>
           <img
             src={currentPath === "profile" ? activeProfile : inactiveProfile}
             alt="프로필"
           />
         </StIconBtn>
-        <StIconBtn>
+        <StIconBtn onClick={() => handleClick("setting")}>
           <img
             src={currentPath === "setting" ? activeSetting : inactiveSetting}
             alt="설정"
