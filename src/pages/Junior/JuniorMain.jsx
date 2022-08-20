@@ -2,6 +2,8 @@ import { useState } from "react";
 import styled, { css } from "styled-components";
 import Nav from "components/Common/nav";
 import icBell from "assets/ic_home_bell.png";
+import logo from "assets/logo.png";
+import juniorill from "assets/juniorill.png";
 import ReservationCard from "components/Common/resevationCard";
 import WhiteCard from "components/Common/WhiteCard";
 import PurpleCard from "components/Common/purpleCard";
@@ -89,6 +91,12 @@ const JuniorMain = () => {
   return (
     <StJuniorMain>
       <Nav />
+      <StLogo>
+        <img src={logo} alt="로고" />
+      </StLogo>
+      <StIll>
+        <img src={juniorill} alt="" />
+      </StIll>
       <StLogoHeader>
         <img src={icBell} alt="알림" />
       </StLogoHeader>
@@ -171,7 +179,24 @@ const JuniorMain = () => {
   );
 };
 export default JuniorMain;
+const StLogo = styled.div`
+  position: absolute;
+  margin-left: 30px;
 
+  & > img {
+    width: 179.82px;
+    height: 48px;
+  }
+`;
+const StIll = styled.div`
+  position: absolute;
+  margin: 33.57px 0 0 154px;
+
+  & > img {
+    width: 217.19px;
+    height: 178px;
+  }
+`;
 const StSearchWrapper = styled.section`
   & > div {
     margin: auto;
@@ -220,7 +245,6 @@ const StLogoHeader = styled.div`
   background: rgba(102, 97, 230, 0.15);
 `;
 const StTitleHeader = styled.div`
-  height: 145px;
   width: 375px;
 `;
 const StPurpleBox = styled.div`
