@@ -1,4 +1,8 @@
 const JuniorSetting = () => {
-  return <></>;
+  return (
+    <>
+      <div></div>
+    </>
+  );
 };
 export default JuniorSetting;
