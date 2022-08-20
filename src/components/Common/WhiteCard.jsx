@@ -1,10 +1,13 @@
+import { useState } from "react";
 import styled from "styled-components";
 import ProfileImgDiv from "./profileImgDiv";
 import icRecommend from "assets/ic_home_recommend.png";
 import icMeet from "assets/ic_home_meet.png";
 import icBookMark from "assets/ic_home_bookmark.png";
+import icBookMarkActive from "assets/ic_home_bookmark_click.png";
 
 const WhiteCard = (props) => {
+  const [isActive, setIsActive] = useState(false);
   const { imgSrc, company, job, working, recommendPrize, meetingCnt, tag } =
     props;
   return (
@@ -31,7 +34,11 @@ const WhiteCard = (props) => {
         </StTagWrapper>
       </StContentWrapper>
       <StBookMarkWrapper>
-        <img src={icBookMark} alt="북마크" />
+        <img
+          src={isActive ? icBookMarkActive : icBookMark}
+          alt="북마크"
+          onClick={() => setIsActive((prev) => !prev)}
+        />
       </StBookMarkWrapper>
     </StWhiteCard>
   );
