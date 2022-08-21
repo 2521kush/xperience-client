@@ -7,7 +7,7 @@ const PurpleCard = (props) => {
   return (
     <StPurpleCard>
       <StImgDiv>
-        <ProfileImgDiv src={imgsrc} />{" "}
+        <ProfileImgDiv src={imgsrc} />
       </StImgDiv>
       <StTitle>'{title}'</StTitle>
       <StComment>'{comment}'</StComment>
@@ -27,7 +27,9 @@ const StPurpleCard = styled.div`
 const StImgDiv = styled.div`
   margin: 14px 0 9px 11px;
 `;
-const StTitle = styled.strong`
+const StTitle = styled.p`
+  width: 129px;
+
   margin-left: 11px;
 
   font-family: "Noto Sans KR";
@@ -38,10 +40,6 @@ const StTitle = styled.strong`
   letter-spacing: -0.02em;
 
   color: #202e5f;
-
-  flex: none;
-  order: 1;
-  flex-grow: 0;
 `;
 const StComment = styled.p`
   width: 129px;

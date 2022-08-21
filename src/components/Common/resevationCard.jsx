@@ -1,13 +1,55 @@
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 
 const ReservationCard = (props) => {
-  const { name, starNo, job, timeStamp, comment } = props;
+  const { name, starNo, job, timeStampRaw, comment } = props;
 
+  const month = timeStampRaw.substr(4, 2); //월
+  const date = timeStampRaw.substr(6, 2); //월
+  const hour = timeStampRaw.substr(8, 2); //월
+  const minute = timeStampRaw.substr(10, 2); //월
+  const endHour = +hour + 1;
+
+  const timeStamp =
+    month +
+    "월 " +
+    date +
+    "일 " +
+    hour +
+    ":" +
+    minute +
+    "-" +
+    endHour +
+    ":" +
+    minute;
+
+  const [jobraw, setJob] = useState("");
+  const star = Math.round(starNo); //별점 반올림
+  console.log(starNo);
+  const starString = "★".repeat(star) + "☆".repeat(5 - star);
+  useEffect(() => {
+    getJobName();
+  }, []);
+
+  const getJobName = () => {
+    if (job === 1) {
+      setJob("개발자");
+    } else if (job === 2) {
+      setJob("UX/UI 디자이너");
+    } else if (job === 3) {
+      setJob("인사");
+    } else if (job === 4) {
+      setJob("마케터");
+    }
+    console.log(job);
+  };
   return (
     <StReservationCard>
-      <StName>{name}</StName>
-      {/* <StStar></StStar> */}
-      <StDetail>- {job}</StDetail>
+      <div>
+        <StName>{name}</StName>
+        <StStar>{starString}</StStar>
+      </div>
+      <StDetail>- {jobraw}</StDetail>
       <StDetail>- {timeStamp}</StDetail>
       <StDetail>- {comment}</StDetail>
       <StEnterBtn>입장하기</StEnterBtn>
@@ -28,6 +70,10 @@ const StReservationCard = styled.div`
   border-radius: 8px;
 
   margin-left: 27px;
+
+  & > div:first-child {
+    display: flex;
+  }
 `;
 
 const StName = styled.strong`
@@ -42,7 +88,19 @@ const StName = styled.strong`
 
   color: #202e5f;
 `;
+const StStar = styled.strong`
+  margin-left: 5px;
+  margin-top: 12px;
 
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 12px;
+  letter-spacing: -0.02em;
+
+  color: #202e5f;
+`;
 const StDetail = styled.p`
   margin: 6px 0 0 6px;
 
