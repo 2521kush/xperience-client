@@ -14,16 +14,12 @@ const JuniorMain = () => {
   const locationData = location.state;
   console.log(locationData);
   const [reservationData, setReservationData] = useState({
-    userInfo: [
-      {
-        Name: "주니어",
-        Category: 3,
-        Start: "202208101630",
-        Title: "뽑아주세요",
-        Score: 0,
-        StarNo: 3,
-      },
-    ],
+    Name: "주니어",
+    Category: 3,
+    Start: "202208101630",
+    Title: "뽑아주세요",
+    Score: 0,
+    StarNo: 3,
   });
   const [seniorData, setSeniorData] = useState();
   useEffect(() => {
@@ -33,9 +29,10 @@ const JuniorMain = () => {
 
   const getReservationInfo = () => {
     axios
-      .get("junior/meetingInfo")
+      .get("junior/meetingInfo", { UserNo: locationData.UserNo })
       .then((response) => {
         console.log(response);
+        setReservationData(response);
       })
       .catch((Error) => {
         console.log(Error);
@@ -104,17 +101,13 @@ const JuniorMain = () => {
       <StReservationContainer>
         <StLabel>예정 미팅</StLabel>
         <div>
-          {reservationData.userInfo.map(
-            ({ Name, StarNo, Category, Start, Title }) => (
-              <ReservationCard
-                name={Name} //string
-                starNo={StarNo} //float
-                job={Category} //num
-                timeStampRaw={Start} //string
-                comment={Title} //string
-              />
-            )
-          )}
+          <ReservationCard
+            name={reservationData.Name} //string
+            starNo={reservationData.StarNo} //float
+            job={reservationData.Category} //num
+            timeStampRaw={reservationData.Start} //string
+            comment={reservationData.Title} //string
+          />
         </div>
       </StReservationContainer>
       <StSimilarSeniorContainer>
