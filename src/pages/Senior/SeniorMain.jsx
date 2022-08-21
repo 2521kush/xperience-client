@@ -121,7 +121,7 @@ const SeniorMain = () => {
                 name={Name}
                 starNo={StarNo}
                 job={Job}
-                timeStamp={TimeStamp}
+                timeStampRaw={TimeStamp}
                 comment={Comment}
               />
             )
@@ -133,22 +133,24 @@ const SeniorMain = () => {
         <div>
           {seniorData.seniorInfo.map(
             ({
+              UserNo,
               ImgSrc,
               Company,
-              Job,
-              Working,
-              RecommendPrize,
-              MeetingCnt,
-              Tag,
+              Category,
+              Period,
+              ConnectCnt,
+              WorkTag,
+              CharacterTag,
             }) => (
               <WhiteCard
+                id={UserNo}
                 imgSrc={ImgSrc}
-                company={Company}
-                job={Job}
-                working={Working}
-                recommendPrize={RecommendPrize}
-                meetingCnt={MeetingCnt}
-                tag={Tag}
+                companyArr={Company}
+                jobRaw={Category}
+                working={Period}
+                meetingCnt={ConnectCnt}
+                workTagArr={WorkTag}
+                characterTagArr={CharacterTag}
               />
             )
           )}

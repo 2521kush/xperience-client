@@ -4,7 +4,8 @@ import styled from "styled-components";
 
 const JuniorSearch = () => {
   const location = useLocation();
-  const data = location.state.data; //post의 res.data
+  const data = location.state; //post의 res.data
+  console.log(data);
 
   return (
     <StJuniorSearch>

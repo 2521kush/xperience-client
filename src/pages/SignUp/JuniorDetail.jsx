@@ -68,7 +68,7 @@ const JuniorDetail = () => {
         Category: Category,
       },
     };
-    console.log("dsf", data);
+
     if (signup.company !== "" && signup.job !== "") {
       axios
         .post("/api/register", data)

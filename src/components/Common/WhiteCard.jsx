@@ -69,26 +69,30 @@ const WhiteCard = (props) => {
   }, [tag]);
 
   const getTag = () => {
-    for (let i = 0; i < workTagArr.length; i++) {
-      if (workTagArr[i] === 1) {
-        setTag((prev) => [...prev, "Backend"]);
-      } else if (workTagArr[i] === 2) {
-        setTag((prevList) => [...prevList, "Software"]);
-      } else if (workTagArr[i] === 3) {
-        setTag((prev) => [...prev, "인사관리"]);
-      } else if (workTagArr[i] === 4) {
-        setTag((prev) => [...prev, "판매"]);
+    if (workTagArr) {
+      for (let i = 0; i < workTagArr.length; i++) {
+        if (workTagArr[i] === 1) {
+          setTag((prev) => [...prev, "Backend"]);
+        } else if (workTagArr[i] === 2) {
+          setTag((prevList) => [...prevList, "Software"]);
+        } else if (workTagArr[i] === 3) {
+          setTag((prev) => [...prev, "인사관리"]);
+        } else if (workTagArr[i] === 4) {
+          setTag((prev) => [...prev, "판매"]);
+        }
       }
     }
-    for (let i = 0; i < characterTagArr.length; i++) {
-      if (characterTagArr[i] === 1) {
-        setTag((prev) => [...prev, "냉철한"]);
-      } else if (characterTagArr[i] === 2) {
-        setTag((prevList) => [...prevList, "따뜻한"]);
-      } else if (characterTagArr[i] === 3) {
-        setTag((prev) => [...prev, "리더십"]);
-      } else if (characterTagArr[i] === 4) {
-        setTag((prev) => [...prev, "계획형"]);
+    if (characterTagArr) {
+      for (let i = 0; i < characterTagArr.length; i++) {
+        if (characterTagArr[i] === 1) {
+          setTag((prev) => [...prev, "냉철한"]);
+        } else if (characterTagArr[i] === 2) {
+          setTag((prevList) => [...prevList, "따뜻한"]);
+        } else if (characterTagArr[i] === 3) {
+          setTag((prev) => [...prev, "리더십"]);
+        } else if (characterTagArr[i] === 4) {
+          setTag((prev) => [...prev, "계획형"]);
+        }
       }
     }
   };

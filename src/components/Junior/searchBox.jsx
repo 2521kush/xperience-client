@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import icSearch from "assets/ic_search.png";
@@ -7,6 +8,7 @@ import icSearch from "assets/ic_search.png";
 const SearchBox = (props) => {
   const { searchOption } = props;
   const inputRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleSearch = () => {
     let valuePost = 5;
@@ -56,9 +58,8 @@ const SearchBox = (props) => {
         searchOption: valuePost,
       })
       .then((res) => {
-        console.log(res.status);
-        console.log(res.data);
-        <Link to="/junior/search" state={res.data} />;
+        console.log("응답결과", res);
+        // navigate("/junior/search", { state: res });
       })
       .catch((e) => console.log("error catch :(", e));
   };
