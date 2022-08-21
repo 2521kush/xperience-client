@@ -1,5 +1,7 @@
 import Setting from "assets/Setting.png";
 import Top from "components/Common/Top";
+import Nav from "components/Common/nav";
+
 const SeniorSetting = () => {
   return (
   <div className = 'setting_container'>

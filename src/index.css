@@ -145,8 +145,8 @@ body{
 
 .SeniorMypage_profile{
     width: 118px;
-    padding-left: 30px;
-    padding-top: 120px;
+    padding-left:30px;
+    padding-top: 70px;
 }
 
 .SeniorMypage_profile>div{
@@ -160,7 +160,7 @@ body{
 }
 
 .SeniorMypage_tag{
-    padding-top: 120px;
+    padding-top: 90px;
     width: 163px;
     padding-left: 34px;
     padding-right: 30px;
@@ -187,7 +187,8 @@ body{
 
 .SeniorMypage_smalltext{
     font-size: 10px;
-    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
 
 button {
@@ -268,3 +269,161 @@ button {
     border-radius : 15px;
 }
 
+.mypage_button{
+    width: 315px;
+    padding-left: 30px;
+    padding-top: 50px;
+}
+
+.title{
+    height: 18px;
+}
+
+.OnBoarding{
+    height: 808px;
+}
+
+.Onboarding_container{
+    display: flex;
+    justify-content: center;
+}
+
+.react-datepicker__input-container input{
+    margin-top: 20px;
+    width: 300px;
+    height: 30px;
+}
+
+.applyContainer{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.applyweekDay{
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-color: #DBDBDB;
+}
+
+.timecheckbox{
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #E8E7FB;
+    border-radius: 15px;
+}
+
+.checkcircle{
+    height: 14px;
+    margin-right: 8px;
+}
+
+.checker{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .modal button {
+    outline: none;
+    cursor: pointer;
+    border: 0;
+  }
+  .modal > section {
+    width: 71%;
+    max-width: 450px;
+    margin: 0 auto;
+    border-radius: 0.3rem;
+    background-color: #fff;
+    /* 팝업이 열릴때 스르륵 열리는 효과 */
+    animation: modal-show 0.3s;
+    overflow: hidden;
+  }
+  .modal > section > header {
+    align-items: center;
+    position: relative;
+    padding: 16px 64px 16px 16px;
+    background-color: #f1f1f1;
+    font-weight: 700;
+  }
+  .modal > section > header button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    font-size: 21px;
+    font-weight: 700;
+    text-align: center;
+    color: #999;
+    background-color: transparent;
+  }
+  .modal > section > main {
+    padding: 16px;
+    border-bottom: 1px solid #dee2e6;
+    border-top: 1px solid #dee2e6;
+  }
+  .modal > section > footer {
+    padding: 12px 16px;
+    text-align: right;
+  }
+  .modal > section > footer button {
+    padding: 6px 12px;
+    color: #685931;
+    background-color: #FFE690;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    width: 235px;
+    height: 41px;
+  }
+  .modal.openModal {
+    display: flex;
+    align-items: center;
+    /* 팝업이 열릴때 스르륵 열리는 효과 */
+    animation: modal-bg-show 0.3s;
+  }
+  @keyframes modal-show {
+    from {
+      opacity: 0;
+      margin-top: -50px;
+    }
+    to {
+      opacity: 1;
+      margin-top: 0;
+    }
+  }
+  @keyframes modal-bg-show {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .modal_contents{
+    margin-top: 10px;
+    font-size: 14px;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .minititle{
+    height: 15px;
+  }
