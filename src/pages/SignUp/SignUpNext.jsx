@@ -7,6 +7,7 @@ import SignUp_Junior from "assets/SignUp_Junior.png";
 import SignUp_Senior from "assets/SignUp_Senior.png";
 import SignUp_JuniorP from "assets/SignUp_JuniorP.png";
 import SignUp_SeniorP from "assets/SignUp_SeniorP.png";
+import TopW from "components/Common/TopW";
 
 const SignUpNext = () => {
   const [cookies, setCookie] = useCookies(["loginkey"]);
@@ -46,36 +47,39 @@ const SignUpNext = () => {
   };
 
   return (
-    <div className="container">
-      <div className="signup_title">회원가입</div>
-      <div className="signup_text">
-        현재 "<span>나에게 해당하는 형태</span>"를 선택해주세요
-      </div>
-      <br></br>
-      <div className="signup_button">
-        <div onClick={handleClickColoredJunior}>
-          {ColoredJunior ? (
-            <img className="signup_img" src={SignUp_Junior} alt="React" />
-          ) : (
-            <img className="signup_img" src={SignUp_JuniorP} alt="React" />
-          )}
+    <>
+      <TopW />
+      <div className="container">
+        <div className="signup_title">회원가입</div>
+        <div className="signup_text">
+          현재 "<span>나에게 해당하는 형태</span>"를 선택해주세요
         </div>
-        <div onClick={handleClickColoredSenior}>
-          {ColoredSenior ? (
-            <img className="signup_img" src={SignUp_Senior} alt="React" />
-          ) : (
-            <img className="signup_img" src={SignUp_SeniorP} alt="React" />
-          )}
+        <br></br>
+        <div className="signup_button">
+          <div onClick={handleClickColoredJunior}>
+            {ColoredJunior ? (
+              <img className="signup_img" src={SignUp_Junior} alt="React" />
+            ) : (
+              <img className="signup_img" src={SignUp_JuniorP} alt="React" />
+            )}
+          </div>
+          <div onClick={handleClickColoredSenior}>
+            {ColoredSenior ? (
+              <img className="signup_img" src={SignUp_Senior} alt="React" />
+            ) : (
+              <img className="signup_img" src={SignUp_SeniorP} alt="React" />
+            )}
+          </div>
         </div>
-      </div>
 
-      <br></br>
-      <div className="loginbutton">
-        <button onClick={handleClickSignUpMove} className="login_button">
-          다음
-        </button>
+        <br></br>
+        <div className="loginbutton">
+          <button onClick={handleClickSignUpMove} className="login_button">
+            다음
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -13,6 +13,7 @@ import {
   InputAdornment,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import TopW from "components/Common/TopW";
 
 const Login = () => {
   const [cookies, setCookie] = useCookies(["loginkey"]);
@@ -61,71 +62,74 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
-      <div className="login_title">로그인</div>
-      <br></br>
-      <Box
-        className="login_box"
-        component="form"
-        sx={{ width: 500, maxWidth: "100%" }}
-      >
-        <TextField
-          placeholder="이메일 주소 또는 아이디"
-          value={login.id}
-          name="id"
-          onChange={handleChangeLogin}
-          fullWidth
-          id="standard-basic"
-        />
-      </Box>
-      <br></br>
-      <Box
-        className="login_box"
-        component="form"
-        sx={{ width: 500, maxWidth: "100%" }}
-      >
-        <TextField
-          placeholder="패쓰워드"
-          type={showPassword ? "text" : "password"}
-          value={login.password}
-          name="password"
-          onChange={handleChangeLogin}
-          fullWidth
-          id="standard-basic"
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton onClick={handleClickShowPassword}>
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            ),
+    <>
+      <TopW />
+      <div className="container">
+        <div className="login_title">로그인</div>
+        <br></br>
+        <Box
+          className="login_box"
+          component="form"
+          sx={{ width: 500, maxWidth: "100%" }}
+        >
+          <TextField
+            placeholder="이메일 주소 또는 아이디"
+            value={login.id}
+            name="id"
+            onChange={handleChangeLogin}
+            fullWidth
+            id="standard-basic"
+          />
+        </Box>
+        <br></br>
+        <Box
+          className="login_box"
+          component="form"
+          sx={{ width: 500, maxWidth: "100%" }}
+        >
+          <TextField
+            placeholder="패쓰워드"
+            type={showPassword ? "text" : "password"}
+            value={login.password}
+            name="password"
+            onChange={handleChangeLogin}
+            fullWidth
+            id="standard-basic"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton onClick={handleClickShowPassword}>
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
+        </Box>
+
+        <FormGroup>
+          <FormControlLabel
+            control={<Checkbox defaultChecked />}
+            label="로그인 상태 유지"
+          />
+        </FormGroup>
+        <br></br>
+        <div
+          className="text1"
+          onClick={() => {
+            navigate("/signup");
           }}
-        />
-      </Box>
+        >
+          아이디 찾기 | 비밀번호 재설정 | 회원가입
+        </div>
 
-      <FormGroup>
-        <FormControlLabel
-          control={<Checkbox defaultChecked />}
-          label="로그인 상태 유지"
-        />
-      </FormGroup>
-      <br></br>
-      <div
-        className="text1"
-        onClick={() => {
-          navigate("/signup");
-        }}
-      >
-        아이디 찾기 | 비밀번호 재설정 | 회원가입
+        <div className="loginbutton">
+          <button className="login_button" onClick={handleClickLogin}>
+            로그인
+          </button>
+        </div>
       </div>
-
-      <div className="loginbutton">
-        <button className="login_button" onClick={handleClickLogin}>
-          로그인
-        </button>
-      </div>
-    </div>
+    </>
   );
 };
 

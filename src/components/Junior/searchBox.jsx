@@ -53,9 +53,15 @@ const SearchBox = (props) => {
 
   const dataPost = (props) => {
     const valuePost = props;
+    let opt = 0;
+    if (searchOption === "Company") {
+      opt = 1;
+    } else if (searchOption === "Category") {
+      opt = 2;
+    }
     axios
       .post("api/senior/search", {
-        searchOption: valuePost,
+        opt: valuePost,
       })
       .then((res) => {
         console.log("응답결과", res);
