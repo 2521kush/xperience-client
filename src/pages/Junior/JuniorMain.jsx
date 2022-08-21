@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import styled, { css } from "styled-components";
 import Nav from "components/Common/nav";
 import icBell from "assets/ic_home_bell.png";
@@ -6,8 +7,12 @@ import ReservationCard from "components/Common/resevationCard";
 import WhiteCard from "components/Common/WhiteCard";
 import PurpleCard from "components/Common/purpleCard";
 import SearchBox from "components/Junior/searchBox";
+import axios from "axios";
 
 const JuniorMain = () => {
+  const location = useLocation();
+  const locationData = location.state;
+  console.log(locationData);
   const [reservationData, setReservationData] = useState({
     userInfo: [
       {
@@ -16,40 +21,26 @@ const JuniorMain = () => {
         Start: "202208101630",
         Title: "뽑아주세요",
         Score: 0,
+        StarNo: 3,
       },
     ],
   });
-  const [seniorData, setSeniorData] = useState({
-    seniorInfo: [
-      {
-        ImgSrc: "aaa",
-        Company: "삼전",
-        Job: "UX 디자이너",
-        Working: "14년",
-        RecommendPrize: 1,
-        MeetingCnt: 14,
-        Tag: ["사수꿀팁", "기획 팁"],
-      },
-      {
-        ImgSrc: "bbb",
-        Company: "Lg",
-        Job: "Ufd 디자이너",
-        Working: "15년",
-        RecommendPrize: 6,
-        MeetingCnt: 18,
-        Tag: ["사수꿀dss팁", "기dsfv획 팁"],
-      },
-      {
-        ImgSrc: "ccc",
-        Company: "구글",
-        Job: "PM",
-        Working: "6년",
-        RecommendPrize: 8,
-        MeetingCnt: 9,
-        Tag: ["개발언어", "아이디어"],
-      },
-    ],
-  });
+  const [seniorData, setSeniorData] = useState();
+  useEffect(() => {
+    setSeniorData(locationData.RecommendSeniorList);
+    getReservationInfo();
+  }, []);
+
+  const getReservationInfo = () => {
+    axios
+      .get("junior/meetingInfo")
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((Error) => {
+        console.log(Error);
+      });
+  };
   const [popularSenior, setPopularSenior] = useState({
     seniorInfo: [
       {
@@ -129,27 +120,30 @@ const JuniorMain = () => {
       <StSimilarSeniorContainer>
         <StLabel>당신을 위한 시니어</StLabel>
         <div>
-          {seniorData.seniorInfo.map(
-            ({
-              ImgSrc,
-              Company,
-              Job,
-              Working,
-              RecommendPrize,
-              MeetingCnt,
-              Tag,
-            }) => (
-              <WhiteCard
-                imgSrc={ImgSrc}
-                company={Company}
-                job={Job}
-                working={Working}
-                recommendPrize={RecommendPrize}
-                meetingCnt={MeetingCnt}
-                tag={Tag}
-              />
-            )
-          )}
+          {seniorData &&
+            seniorData.map(
+              ({
+                UserNo,
+                ImgSrc,
+                Company,
+                Category,
+                Period,
+                ConnectCnt,
+                WorkTag,
+                CharacterTag,
+              }) => (
+                <WhiteCard
+                  id={UserNo}
+                  imgSrc={ImgSrc}
+                  companyArr={Company}
+                  jobRaw={Category}
+                  working={Period}
+                  meetingCnt={ConnectCnt}
+                  workTagArr={WorkTag}
+                  characterTagArr={CharacterTag}
+                />
+              )
+            )}
         </div>
       </StSimilarSeniorContainer>
       <StLabel>실시간 인기 시니어</StLabel>

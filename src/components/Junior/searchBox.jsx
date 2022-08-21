@@ -9,7 +9,7 @@ const SearchBox = (props) => {
   const inputRef = useRef(null);
 
   const handleSearch = () => {
-    const valuePost = 5;
+    let valuePost = 5;
     dataPost();
     if (searchOption === "Company") {
       switch (inputRef.current.value) {
@@ -52,7 +52,7 @@ const SearchBox = (props) => {
   const dataPost = (props) => {
     const valuePost = props;
     axios
-      .post("http://localhost:8000/api/senior/search", {
+      .post("api/senior/search", {
         searchOption: valuePost,
       })
       .then((res) => {

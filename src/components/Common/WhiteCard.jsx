@@ -14,7 +14,7 @@ const WhiteCard = (props) => {
     id,
     imgSrc,
     companyArr,
-    job,
+    jobRaw,
     working,
     meetingCnt,
     workTagArr,
@@ -23,55 +23,74 @@ const WhiteCard = (props) => {
 
   useEffect(() => {
     getCompanyName(); //회사정보배열 숫자 -> 이름으로 변경
+    getJobName();
     getTag();
   }, []);
 
-  let company = "";
+  const [company, setCompany] = useState("");
+  const [job, setJob] = useState("");
+
+  const getJobName = () => {
+    if (jobRaw === 1) {
+      setJob("개발자");
+    } else if (jobRaw === 2) {
+      setJob("UX/UI 디자이너");
+    } else if (jobRaw === 3) {
+      setJob("인사");
+    } else if (jobRaw === 4) {
+      setJob("마케터");
+    }
+    console.log(job);
+  };
   const getCompanyName = () => {
     const companyNo = companyArr[0];
+    console.log(companyNo);
     switch (companyNo) {
       case 1:
-        company = "삼성전자";
+        setCompany("삼성전자");
         break;
       case 2:
-        company = "LG전자";
+        setCompany("LG전자");
         break;
       case 3:
-        company = "애플";
+        setCompany("애플");
         break;
       case 4:
-        company = "구글";
+        setCompany("구글");
         break;
       default:
         break;
     }
   };
 
-  const tag = [];
-  const getTag = () => {
-    workTagArr.map(({ item }) => {
-      if (item === 1) {
-        tag.push("Backend");
-      } else if (item === 2) {
-        tag.push("Software");
-      } else if (item === 3) {
-        tag.push("인사관리");
-      } else if (item === 4) {
-        tag.push("판매");
-      }
-    });
+  const [tag, setTag] = useState([]);
+  useEffect(() => {
+    console.log(tag);
+  }, [tag]);
 
-    characterTagArr.map(({ item }) => {
-      if (item === 1) {
-        tag.push("냉철한");
-      } else if (item === 2) {
-        tag.push("따뜻한");
-      } else if (item === 3) {
-        tag.push("리더십");
-      } else if (item === 4) {
-        tag.push("계획형");
+  const getTag = () => {
+    for (let i = 0; i < workTagArr.length; i++) {
+      if (workTagArr[i] === 1) {
+        setTag((prev) => [...prev, "Backend"]);
+      } else if (workTagArr[i] === 2) {
+        setTag((prevList) => [...prevList, "Software"]);
+      } else if (workTagArr[i] === 3) {
+        setTag((prev) => [...prev, "인사관리"]);
+      } else if (workTagArr[i] === 4) {
+        setTag((prev) => [...prev, "판매"]);
       }
-    });
+    }
+    for (let i = 0; i < characterTagArr.length; i++) {
+      if (characterTagArr[i] === 1) {
+        setTag((prev) => [...prev, "냉철한"]);
+      } else if (characterTagArr[i] === 2) {
+        setTag((prevList) => [...prevList, "따뜻한"]);
+      } else if (characterTagArr[i] === 3) {
+        setTag((prev) => [...prev, "리더십"]);
+      } else if (characterTagArr[i] === 4) {
+        setTag((prev) => [...prev, "계획형"]);
+      }
+    }
   };
 
   return (
@@ -81,7 +100,7 @@ const WhiteCard = (props) => {
       </StImgDiv>
       <StContentWrapper>
         <StTitle>
-          {company} / {job} / {working}
+          {company} / {job} / {working}년
         </StTitle>
         <StDetailWrapper>
           <img src={icRecommend} alt="" />
