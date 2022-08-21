@@ -123,8 +123,8 @@ const Login = () => {
           아이디 찾기 | 비밀번호 재설정 | 회원가입
         </div>
 
-        <div className="loginbutton">
-          <button className="login_button" onClick={handleClickLogin}>
+        <div className='loginbutton'>
+          <button className='login_button'>
             로그인
           </button>
         </div>

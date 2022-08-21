@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
+import { useNavigate } from "react-router-dom";
 import Nav from "components/Common/nav";
 import Top from "components/Common/Top";
 import ProfileBack from "assets/ProfileBack.png";
 import ProfileTag from "components/Common/ProfileTag";
+import ProfileTag2 from 'components/Common/ProfileTag2';
 import L_Mon from "assets/L_Mon.png";
 import B_Mon from "assets/B_Mon.png";
 import L_Tue from "assets/L_Tue.png";
@@ -18,6 +20,7 @@ import B_SatSun from "assets/B_SatSun.png";
 import Line from "assets/Line.png";
 
 const SeniorMyPage = () => {
+  const navigate = useNavigate();
   const [detailInfo, setdetailInfo] = useState({
     one: '',
     self: '',
@@ -98,8 +101,10 @@ const SeniorMyPage = () => {
                   </div>
                   <div className ="SeniorMypage_tag">
                     <div className ="SeniorMypage_text">태그 설정</div>
-                    <div className = "SeniorMypage_smalltext">나를 소개하는 단어를 설정해보세요</div>
+                    <div className = "SeniorMypage_smalltext">역량을 소개하는 태그를 설정하세요</div>
                     <ProfileTag/>
+                    <div className = "SeniorMypage_smalltext">성격을 소개하는 태그를 설정하세요</div>
+                    <ProfileTag2/>
                   </div>
       </div>
       <div className ="SeniorMypage_bottom">
@@ -235,6 +240,11 @@ const SeniorMyPage = () => {
           onChange={handleChangeTime}
         />
       </div>
+      <div className="mypage_button">
+          <button onClick={()=>{navigate('/senior/mypage')}} className='login_button'>
+            저장 하기
+          </button>
+        </div>
       <div className = "navSpace"></div>
       <Nav />
       </div>
