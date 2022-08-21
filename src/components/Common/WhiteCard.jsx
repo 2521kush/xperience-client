@@ -98,7 +98,7 @@ const WhiteCard = (props) => {
   };
 
   return (
-    <StWhiteCard onClick={() => navigate(`/profile/${id}`)}>
+    <StWhiteCard onClick={() => navigate("/profile/detail")}>
       <StImgDiv>
         <ProfileImgDiv imgSrc={imgSrc} />
       </StImgDiv>

@@ -12,7 +12,6 @@ const SearchBox = (props) => {
 
   const handleSearch = () => {
     let valuePost = 5;
-    dataPost();
     if (searchOption === "Company") {
       switch (inputRef.current.value) {
         case "삼성전자":
@@ -53,21 +52,27 @@ const SearchBox = (props) => {
 
   const dataPost = (props) => {
     const valuePost = props;
-    let opt = 0;
     if (searchOption === "Company") {
-      opt = 1;
+      axios
+        .post("/api/senior/search", {
+          Company: valuePost,
+        })
+        .then((res) => {
+          console.log("응답결과", res);
+          navigate("/junior/search", { state: res.data });
+        })
+        .catch((e) => console.log("error catch :(", e));
     } else if (searchOption === "Category") {
-      opt = 2;
+      axios
+        .post("/api/senior/search", {
+          Category: valuePost,
+        })
+        .then((res) => {
+          console.log("응답결과", res);
+          navigate("/junior/search", { state: res.data });
+        })
+        .catch((e) => console.log("error catch :(", e));
     }
-    axios
-      .post("api/senior/search", {
-        opt: valuePost,
-      })
-      .then((res) => {
-        console.log("응답결과", res);
-        // navigate("/junior/search", { state: res });
-      })
-      .catch((e) => console.log("error catch :(", e));
   };
 
   return (

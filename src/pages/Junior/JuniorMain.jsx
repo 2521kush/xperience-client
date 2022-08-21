@@ -11,10 +11,13 @@ import PurpleCard from "components/Common/purpleCard";
 import SearchBox from "components/Junior/searchBox";
 import axios from "axios";
 
+import { useCookies } from "react-cookie";
+
 const JuniorMain = () => {
+  const [cookies, setCookie] = useCookies(["seniorList", "juniorList"]);
   const location = useLocation();
-  const locationData = location.state;
-  console.log(locationData);
+  const locationData = cookies.seniorList;
+
   const [reservationData, setReservationData] = useState({
     Name: "주니어",
     Category: 3,
@@ -25,7 +28,7 @@ const JuniorMain = () => {
   });
   const [seniorData, setSeniorData] = useState();
   useEffect(() => {
-    setSeniorData(locationData.RecommendSeniorList);
+    setSeniorData(locationData);
     getReservationInfo();
   }, []);
 
@@ -43,25 +46,28 @@ const JuniorMain = () => {
   const [popularSenior, setPopularSenior] = useState({
     seniorInfo: [
       {
-        ImgSrc: "aaa",
+        ImgSrc:
+          "https://images.unsplash.com/photo-1660974787487-0c778c3ac77c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80",
         Title: "UX 플로우 설정은 누구보다자신있어요.",
         Comment:
           "타겟층 플로우 설정에 어려움을 느꼈던 분들을 위해 가장 쉽게 설명해드려요.",
       },
       {
-        ImgSrc: "bbb",
+        ImgSrc:
+          "https://images.unsplash.com/photo-1660909857348-96aef191d462?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
         Title: "서울대 컴퓨터 공학과를 전공하고 개발자로 일했어요.",
         Comment:
           "많은 학생들을 만나면서 가장 어려워했던 파트를 저만의 방법으로 알려드려요.",
       },
       {
-        ImgSrc: "ccc",
+        ImgSrc: "",
         Title: "현대차의 영업비밀을 여러분께소개합니다.",
         Comment:
           "3개월 동안 베스트 영업 팀장으로 뽑힐 수 있던 이유를 공유해드려요.",
       },
       {
-        ImgSrc: "bbb",
+        ImgSrc:
+          "https://images.unsplash.com/photo-1660943554191-ebbc3bb923d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
         Title: "코리아 구글러가 되고 싶으신가요?",
         Comment: "구글 개발자들이 일하는 법, 구글 개발자들의 커뮤니케이션.",
       },

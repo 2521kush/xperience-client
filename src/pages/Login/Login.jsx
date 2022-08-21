@@ -16,10 +16,11 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import TopW from "components/Common/TopW";
 
 const Login = () => {
-  const [cookies, setCookie] = useCookies(["loginkey"]);
+  const [cookies, setCookie] = useCookies(["seniorList", "juniorList"]);
+
   const navigate = useNavigate();
   const [login, setLogin] = useState({
-    id: "aaa",
+    id: "",
     password: "",
   });
 
@@ -44,10 +45,17 @@ const Login = () => {
         if (response.data.login === false) {
           alert("아이디와 비밀번호를 다시 확인해주세요");
         } else {
-          if (response.data.Status) {
+          if (response.data.Status === 1) {
             navigate("/senior", { state: response.data });
+            setCookie("seniorList", response.data.RecommendSeniorList, {
+              path: "/",
+            });
+            setCookie("juniorList", response.data.NewJuniorList, { path: "/" });
           } else {
             navigate("/junior", { state: response.data });
+            setCookie("seniorList", response.data.RecommendSeniorList, {
+              path: "/",
+            });
           }
         }
       })
@@ -123,8 +131,8 @@ const Login = () => {
           아이디 찾기 | 비밀번호 재설정 | 회원가입
         </div>
 
-        <div className='loginbutton'>
-          <button className='login_button'>
+        <div className="loginbutton">
+          <button className="login_button" onClick={handleClickLogin}>
             로그인
           </button>
         </div>

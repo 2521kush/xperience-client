@@ -5,6 +5,7 @@ import Senior from "./Senior";
 import Junior from "./Junior";
 import OnBoarding from "./OnBoarding";
 import NotFound from "./NotFound";
+import ProfileDetail from "pages/profile/detail";
 
 const MainRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const MainRoutes = () => {
       <Route path="/signup/*" element={<SignUp />} />
       <Route path="/senior/*" element={<Senior />} />
       <Route path="/junior/*" element={<Junior />} />
+      <Route path="/profile/detail" element={<ProfileDetail />} />
       <Route path="/*" element={<NotFound />} />
     </Routes>
   );
