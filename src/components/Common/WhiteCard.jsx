@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import ProfileImgDiv from "./profileImgDiv";
 import icRecommend from "assets/ic_home_recommend.png";
@@ -7,22 +8,108 @@ import icBookMark from "assets/ic_home_bookmark.png";
 import icBookMarkActive from "assets/ic_home_bookmark_click.png";
 
 const WhiteCard = (props) => {
+  let navigate = useNavigate();
   const [isActive, setIsActive] = useState(false);
-  const { imgSrc, company, job, working, recommendPrize, meetingCnt, tag } =
-    props;
+  const {
+    id,
+    imgSrc,
+    companyArr,
+    jobRaw,
+    working,
+    meetingCnt,
+    workTagArr,
+    characterTagArr,
+  } = props;
+
+  useEffect(() => {
+    getCompanyName(); //회사정보배열 숫자 -> 이름으로 변경
+    getJobName();
+    getTag();
+  }, []);
+
+  const [company, setCompany] = useState("");
+  const [job, setJob] = useState("");
+
+  const getJobName = () => {
+    if (jobRaw === 1) {
+      setJob("개발자");
+    } else if (jobRaw === 2) {
+      setJob("UX/UI 디자이너");
+    } else if (jobRaw === 3) {
+      setJob("인사");
+    } else if (jobRaw === 4) {
+      setJob("마케터");
+    }
+    console.log(job);
+  };
+  const getCompanyName = () => {
+    const companyNo = companyArr[0];
+    console.log(companyNo);
+    switch (companyNo) {
+      case 1:
+        setCompany("삼성전자");
+        break;
+      case 2:
+        setCompany("LG전자");
+        break;
+      case 3:
+        setCompany("애플");
+        break;
+      case 4:
+        setCompany("구글");
+        break;
+      default:
+        break;
+    }
+  };
+
+  const [tag, setTag] = useState([]);
+  useEffect(() => {
+    console.log(tag);
+  }, [tag]);
+
+  const getTag = () => {
+    if (workTagArr) {
+      for (let i = 0; i < workTagArr.length; i++) {
+        if (workTagArr[i] === 1) {
+          setTag((prev) => [...prev, "Backend"]);
+        } else if (workTagArr[i] === 2) {
+          setTag((prevList) => [...prevList, "Software"]);
+        } else if (workTagArr[i] === 3) {
+          setTag((prev) => [...prev, "인사관리"]);
+        } else if (workTagArr[i] === 4) {
+          setTag((prev) => [...prev, "판매"]);
+        }
+      }
+    }
+    if (characterTagArr) {
+      for (let i = 0; i < characterTagArr.length; i++) {
+        if (characterTagArr[i] === 1) {
+          setTag((prev) => [...prev, "냉철한"]);
+        } else if (characterTagArr[i] === 2) {
+          setTag((prevList) => [...prevList, "따뜻한"]);
+        } else if (characterTagArr[i] === 3) {
+          setTag((prev) => [...prev, "리더십"]);
+        } else if (characterTagArr[i] === 4) {
+          setTag((prev) => [...prev, "계획형"]);
+        }
+      }
+    }
+  };
+
   return (
-    <StWhiteCard>
+    <StWhiteCard onClick={() => navigate(`/profile/${id}`)}>
       <StImgDiv>
         <ProfileImgDiv imgSrc={imgSrc} />
       </StImgDiv>
       <StContentWrapper>
         <StTitle>
-          {company} / {job} / {working}
+          {company} / {job} / {working}년
         </StTitle>
         <StDetailWrapper>
           <img src={icRecommend} alt="" />
           <p>추천순</p>
-          <strong>{recommendPrize}위</strong>
+          <strong>- 위</strong>
           <img src={icMeet} alt="" />
           <p>미팅횟수</p>
           <strong>{meetingCnt}회</strong>

@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import Nav from "components/Common/nav";
 import icBell from "assets/ic_home_bell.png";
+import logo from "assets/logo.png";
+import seniorill from "assets/seniorill.png";
 import ReservationCard from "components/Common/resevationCard";
 import WhiteCard from "components/Common/WhiteCard";
 import PurpleCard from "components/Common/purpleCard";
@@ -93,6 +95,12 @@ const SeniorMain = () => {
   return (
     <StSeniorMain>
       <Nav />
+      <StLogo>
+        <img src={logo} alt="로고" />
+      </StLogo>
+      <StIll>
+        <img src={seniorill} alt="" />
+      </StIll>
       <StLogoHeader>
         <img src={icBell} alt="알림" />
       </StLogoHeader>
@@ -113,7 +121,7 @@ const SeniorMain = () => {
                 name={Name}
                 starNo={StarNo}
                 job={Job}
-                timeStamp={TimeStamp}
+                timeStampRaw={TimeStamp}
                 comment={Comment}
               />
             )
@@ -125,22 +133,24 @@ const SeniorMain = () => {
         <div>
           {seniorData.seniorInfo.map(
             ({
+              UserNo,
               ImgSrc,
               Company,
-              Job,
-              Working,
-              RecommendPrize,
-              MeetingCnt,
-              Tag,
+              Category,
+              Period,
+              ConnectCnt,
+              WorkTag,
+              CharacterTag,
             }) => (
               <WhiteCard
+                id={UserNo}
                 imgSrc={ImgSrc}
-                company={Company}
-                job={Job}
-                working={Working}
-                recommendPrize={RecommendPrize}
-                meetingCnt={MeetingCnt}
-                tag={Tag}
+                companyArr={Company}
+                jobRaw={Category}
+                working={Period}
+                meetingCnt={ConnectCnt}
+                workTagArr={WorkTag}
+                characterTagArr={CharacterTag}
               />
             )
           )}
@@ -158,7 +168,24 @@ const SeniorMain = () => {
   );
 };
 export default SeniorMain;
+const StLogo = styled.div`
+  position: absolute;
+  margin-left: 30px;
 
+  & > img {
+    width: 179.82px;
+    height: 48px;
+  }
+`;
+const StIll = styled.div`
+  position: absolute;
+  margin: 47.57px 0 0 154px;
+
+  & > img {
+    width: 217.19px;
+    height: 178px;
+  }
+`;
 const StSeniorMain = styled.div`
   width: 375px;
   overflow-x: scroll;
