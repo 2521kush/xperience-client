@@ -8,8 +8,7 @@ import icBookMarkActive from "assets/ic_home_bookmark_click.png";
 
 const WhiteCard = (props) => {
   const [isActive, setIsActive] = useState(false);
-  const { imgSrc, company, job, working, recommendPrize, meetingCnt, tag } =
-    props;
+  const { imgSrc, company, job, working, meetingCnt, tag } = props;
   return (
     <StWhiteCard>
       <StImgDiv>
@@ -22,7 +21,7 @@ const WhiteCard = (props) => {
         <StDetailWrapper>
           <img src={icRecommend} alt="" />
           <p>추천순</p>
-          <strong>{recommendPrize}위</strong>
+          <strong>- 위</strong>
           <img src={icMeet} alt="" />
           <p>미팅횟수</p>
           <strong>{meetingCnt}회</strong>
